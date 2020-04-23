@@ -8,11 +8,14 @@ namespace BusinessLogic
 {
     public interface IRecipeBL
     {
-        public ICollection<Recipe> GetRecipes();
+        public ICollection<Recipe> GetAllRecipes();
 
-        public ICollection<Ingredient> GetIngredients();
+        public ICollection<Ingredient> GetAllIngredients();
+
+        public ICollection<Ingredient> GetRecipe(int recipeId);
 
         public void AddRecipe(Recipe recipe);
 
         public void DeleteRecipe(int recipeId);
+    }
 }

@@ -1,17 +1,43 @@
-﻿using System;
+﻿using DataAccess;
+using Domain;
+using System;
+using System.Collections.Generic;
 
 //Meli
 namespace BusinessLogic
 {
-    public class RecipeBL
+    public class RecipeBL : IRecipeBL
     {
+        IRecipeRepository _recipeRepository;
+        public RecipeBL(IRecipeRepository recipeRepository)
+        {
+            _recipeRepository = recipeRepository;
+        }
 
-        //GetAllRecipes()
+        public ICollection<Recipe> GetAllRecipes()
+        {
+            return _recipeRepository.GetAllRecipes();
+        }
 
-        //GetAllIngredients()
+        public ICollection<Ingredient> GetAllIngredients()
+        {
+            return _recipeRepository.GetAllIngredients();
+        }
 
-        //AddRecipe(Recipe recipe)
+        public ICollection<Ingredient> GetRecipe(int recipeId)
+        {
+            return _recipeRepository.GetRecipe(recipeId);
+        }
 
-        //DeleteRecipe(Recipe recipe)
+        public void AddRecipe(Recipe recipe)
+        {
+            _recipeRepository.AddRecipe(recipe);
+        } 
+
+        public void DeleteRecipe(int recipeId)
+        {
+            _recipeRepository.DeleteRecipe(recipeId);
+        }
+  
     }
 }

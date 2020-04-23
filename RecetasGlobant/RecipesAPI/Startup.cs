@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLogic;
+using DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +30,8 @@ namespace RecipesAPI
         {
             //services.AddScoped<IRecipeBL, RecipeBL>();
             services.AddControllers();
+            services.AddScoped<IRecipeBL, RecipeBL>();
+            services.AddScoped<IRecipeRepository,RecipeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
