@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Domain;
 
 
@@ -16,7 +17,7 @@ namespace DataAccess
 
         public void DeleteRecipe(Recipe recipe)
         {
-            Recipe recipeFound = db.Recipes.FirstOrDefault(x => x.Id == recipe.Id);
+            Recipe recipeFound = db.Recipes.FirstOrDefault(x => x.RecipeID == recipe.RecipeID);
             db.Recipes.Remove(recipeFound);
             db.SaveChanges();
         }
