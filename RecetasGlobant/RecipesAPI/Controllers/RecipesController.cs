@@ -23,27 +23,34 @@ namespace RecipesAPI.Controllers
         [HttpGet]
         public IEnumerable<Recipe> GetAllRecipes()
         {
-            List<Recipe> recipes = new List<Recipe>();
-            return recipes; 
+            return _recipeBL.GetAllRecipes();
+        }
+        
+        [HttpGet]
+        [Route("ingredients")]
+        public IEnumerable<Ingredient> GetAllIngredients()
+        {
+            return _recipeBL.GetAllIngredients();
         }
 
         [HttpGet]
-        public IEnumerable<Ingredient> GetAllIngredients()
+        [Route("recipe/{recipeId:int}")]
+        public Recipe GetRecipe(int recipeId)
         {
-            List<Ingredient> ingredients = new List<Ingredient>();
-            return ingredients;
+            return _recipeBL.GetRecipe(recipeId);
         }
 
         [HttpPost]
         public void AddRecipe(Recipe recipe)
         {
-           // _recipeBL.Add(recipe);
+            _recipeBL.AddRecipe(recipe);
         }
 
-        [HttpPut]
+        [HttpDelete]
+        [Route("{recipeId:int}")]
         public void DeleteRecipe(int recipeId)
         {
-            // _recipeBL.DeleteRecipe(recipeID);
+            _recipeBL.DeleteRecipe(recipeId);
         }
     }
 }
