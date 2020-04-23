@@ -9,7 +9,7 @@ namespace DataAccess
 {
     public class RecipesContext : DbContext
     {
-        public RecipesContext()
+        public RecipesContext(DbContextOptions<RecipesContext> options) : base(options)
         {
 
         }

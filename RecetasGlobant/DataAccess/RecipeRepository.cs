@@ -8,7 +8,13 @@ namespace DataAccess
 {
     public class RecipeRepository : IRecipeRepository
     {
-        RecipesContext db = new RecipesContext();
+        RecipesContext db;
+
+        public RecipeRepository(RecipesContext recipesContext)
+        {
+            db = recipesContext;
+        }
+
         public void AddRecipe(Recipe recipe)
         {
             db.Recipes.Add(recipe);
