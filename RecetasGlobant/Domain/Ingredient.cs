@@ -11,7 +11,7 @@ namespace Domain
 
         public string IngredientName { get; set; }
 
-        public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
+        public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; }
 
     }
 }

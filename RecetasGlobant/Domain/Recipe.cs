@@ -12,7 +12,7 @@ namespace Domain
 
         public string Difficulty { get; set; }
         
-        public ICollection<RecipeIngredient> RecipeIngredients { get; set; }
+        public virtual ICollection<RecipeIngredient> RecipeIngredients { get; set; }
     }
 
 }

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Text;
 
 //Gianni
@@ -18,8 +19,18 @@ namespace DataAccess
             
         public DbSet<Ingredient> Ingredients { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["RecipeDatabase"].ConnectionString);
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Data Source=UY-IT00984\\SQLEXPRESS; Initial Catalog=RecipeDatabase; Integrated Security=True;");
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             modelBuilder.Entity<RecipeIngredient>()
                 .HasKey(bc => new { bc.RecipeID, bc.IngredientID });
             modelBuilder.Entity<RecipeIngredient>()

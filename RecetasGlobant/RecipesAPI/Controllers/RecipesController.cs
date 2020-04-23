@@ -41,7 +41,7 @@ namespace RecipesAPI.Controllers
         }
 
         [HttpPost]
-        public void AddRecipe(Recipe recipe)
+        public void AddRecipe([FromBody]Recipe recipe)
         {
             _recipeBL.AddRecipe(recipe);
         }

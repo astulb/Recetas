@@ -34,7 +34,7 @@ namespace RecipesAPI
             services.AddControllers();
             services.AddScoped<IRecipeBL, RecipeBL>();
             services.AddScoped<IRecipeRepository,RecipeRepository>();
-            services.AddDbContext<RecipesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("RecipeDatabase")));
+            services.AddDbContext<RecipesContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
