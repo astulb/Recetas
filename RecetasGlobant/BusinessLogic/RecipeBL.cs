@@ -24,7 +24,7 @@ namespace BusinessLogic
             return _recipeRepository.GetAllIngredients();
         }
 
-        public ICollection<Ingredient> GetRecipe(int recipeId)
+        public Recipe GetRecipe(int recipeId)
         {
             return _recipeRepository.GetRecipe(recipeId);
         }

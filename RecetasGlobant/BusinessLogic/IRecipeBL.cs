@@ -12,7 +12,7 @@ namespace BusinessLogic
 
         public ICollection<Ingredient> GetAllIngredients();
 
-        public ICollection<Ingredient> GetRecipe(int recipeId);
+        public Recipe GetRecipe(int recipeId);
 
         public void AddRecipe(Recipe recipe);
 
