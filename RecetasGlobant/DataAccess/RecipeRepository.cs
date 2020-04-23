@@ -22,7 +22,7 @@ namespace DataAccess
             db.SaveChanges();
         }
 
-        public List<Ingredient> GetAllIngredients(Ingredient ingredient)
+        public List<Ingredient> GetAllIngredients()
         {
             List<Ingredient> ingredients = new List<Ingredient>();
             var ingredientList = db.Ingredients.ToList();

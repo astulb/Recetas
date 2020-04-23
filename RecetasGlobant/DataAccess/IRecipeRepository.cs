@@ -21,7 +21,7 @@ namespace DataAccess
 
         public abstract void DeleteRecipe(int id);
 
-        public abstract List<Ingredient> GetAllIngredients(Ingredient ingredient);
+        public abstract List<Ingredient> GetAllIngredients();
 
         public abstract Recipe GetRecipe(int Id);
 
