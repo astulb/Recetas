@@ -15,9 +15,9 @@ namespace DataAccess
             db.SaveChanges();
         }
 
-        public void DeleteRecipe(Recipe recipe)
+        public void DeleteRecipe(int id)
         {
-            Recipe recipeFound = db.Recipes.FirstOrDefault(x => x.RecipeID == recipe.RecipeID);
+            Recipe recipeFound = db.Recipes.FirstOrDefault(x => x.RecipeID == id);
             db.Recipes.Remove(recipeFound);
             db.SaveChanges();
         }
@@ -46,6 +46,15 @@ namespace DataAccess
             }
 
             return recipes;
+        }
+
+        public Recipe GetRecipe(int Id)
+        {
+
+            Recipe recipeFound = db.Recipes.FirstOrDefault(x => x.RecipeID == Id);
+            Recipe recipe = new Recipe();
+            recipe = recipeFound;
+            return recipe;
         }
     }
 }
