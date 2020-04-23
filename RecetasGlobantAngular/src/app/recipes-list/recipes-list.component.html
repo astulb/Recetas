@@ -1,0 +1,10 @@
+<h2>Recipes</h2>
+<button type="button" class="btn btn-primary" (click)=onCreate()>New</button>
+<ul class="recipes list-group">
+  <li *ngFor="let recipe of recipes" class="list-group-item" (click)="onSelect(recipe)">
+    <button type="button" class="btn btn-danger" (click)=onDelte(recipe)>Delete</button>
+    <span class="badge">{{recipe.id}}</span> {{recipe.name}} 
+  </li>
+</ul>
+
+<app-recipe [recipe]="selectedRecipe"></app-recipe>
