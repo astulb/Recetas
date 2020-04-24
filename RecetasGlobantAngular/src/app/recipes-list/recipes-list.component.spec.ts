@@ -2,9 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecipesListComponent } from './recipes-list.component';
 
-
-
-describe('SE ESPERA QUE CREE LA LISTA Y TITULO', () => {
+describe('RecipesListComponent', () => {
   let component: RecipesListComponent;
   let fixture: ComponentFixture<RecipesListComponent>;
 
@@ -21,13 +19,7 @@ describe('SE ESPERA QUE CREE LA LISTA Y TITULO', () => {
     fixture.detectChanges();
   });
 
-  it('FUNCIONA...CREA LA LISTA', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
-  });
-
-  it(`DEBERIA TENER EL TITULO 'A VER SI ESTO FUNCIONA'`, () => {
-    const fixture=TestBed.createComponent(RecipesListComponent);
-    const app=fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('A VER SI ESTO FUNCIONA')
   });
 });

@@ -7,6 +7,7 @@ import { CreateRecipeComponent } from './create-recipe/create-recipe.component';
 import { RecipeComponent } from './recipe/recipe.component';
 import { FormsModule } from '@angular/forms';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   
@@ -19,7 +20,8 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

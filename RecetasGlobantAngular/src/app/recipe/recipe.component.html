@@ -1,12 +1,12 @@
 <div *ngIf="recipe">
 
-  <h2>{{recipe.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{recipe.id}}</div>
-  <div><span>Name: </span>{{recipe.name}}</div>
+  <h2>{{recipe.recipeName | uppercase}} Details</h2>
+  <div><span>id: </span>{{recipe.recipeID}}</div>
+  <div><span>Name: </span>{{recipe.recipeName}}</div>
   <h4>Recipes</h4>
   <ul class="list-group">
     <li *ngFor="let ingredient of recipe.ingredients" class="list-group-item">
-      <span class="badge">{{ingredient.id}}</span> {{ingredient.name}}
+      <span class="badge">{{ingredient.ingredientID}}</span> {{ingredient.ingredientName}}
     </li>
   </ul>
 
