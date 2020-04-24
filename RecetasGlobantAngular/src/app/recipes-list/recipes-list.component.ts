@@ -9,6 +9,8 @@ import { Recipe } from '../Models/recipe';
 })
 export class RecipesListComponent implements OnInit {
 
+  title="A VER SI ESTO FUNCIONA"
+
   recipes = RECIPES;
 
   selectedRecipe : Recipe;
@@ -26,4 +28,7 @@ export class RecipesListComponent implements OnInit {
 
   onCreate(): void {
   }
+
+  
+
 }

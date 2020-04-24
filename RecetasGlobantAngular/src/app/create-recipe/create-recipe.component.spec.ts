@@ -19,7 +19,7 @@ describe('CreateRecipeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('FUNCIONA...CREA EL COMPONENTE', () => {
     expect(component).toBeTruthy();
   });
 });

@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { RecipeService } from './recipe.service';
 
-describe('RecipeService', () => {
+describe('DESPLEGA LA LISTA DE ALIMENTOS???', () => {
   let service: RecipeService;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('RecipeService', () => {
     service = TestBed.inject(RecipeService);
   });
 
-  it('should be created', () => {
+  it('SI LA DESPLEGA', () => {
     expect(service).toBeTruthy();
   });
 });
