@@ -38,6 +38,63 @@ namespace BusinessLogic
         {
             _recipeRepository.DeleteRecipe(recipeId);
         }
-  
+
+        public void AddStuffIfDBEmpty()
+        {
+            if(_recipeRepository.GetAllRecipes().Count == 0)
+            {
+                Recipe aRecipe = new Recipe()
+                {
+                    Difficulty = "ez",
+                    RecipeName = "tacos",
+                    RecipeIngredients = new List<RecipeIngredient>()
+
+                };
+
+                Ingredient ing1 = new Ingredient()
+                {
+                    IngredientName = "papa",
+                    RecipeIngredients = new List<RecipeIngredient>()
+                };
+                Ingredient ing2 = new Ingredient()
+                {
+                    IngredientName = "arroz",
+                    RecipeIngredients = new List<RecipeIngredient>()
+                }; 
+                Ingredient ing3 = new Ingredient()
+                {
+                    IngredientName = "manteca",
+                    RecipeIngredients = new List<RecipeIngredient>()
+                };
+
+                RecipeIngredient rec1 = new RecipeIngredient()
+                {
+                    Recipe = aRecipe,
+                    Ingredient = ing1
+                };
+                RecipeIngredient rec2 = new RecipeIngredient()
+                {
+                    Recipe = aRecipe,
+                    Ingredient = ing2
+                };
+                RecipeIngredient rec3 = new RecipeIngredient()
+                {
+                    Recipe = aRecipe,
+                    Ingredient = ing3
+                };
+
+                aRecipe.RecipeIngredients.Add(rec1);
+                aRecipe.RecipeIngredients.Add(rec2);
+                aRecipe.RecipeIngredients.Add(rec3);
+
+                ing1.RecipeIngredients.Add(rec1);
+                ing2.RecipeIngredients.Add(rec2);
+                ing3.RecipeIngredients.Add(rec3);
+
+
+                _recipeRepository.AddRecipe(aRecipe);
+
+            }
+        }
     }
 }

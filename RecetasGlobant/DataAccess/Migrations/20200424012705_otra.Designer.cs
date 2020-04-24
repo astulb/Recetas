@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(RecipesContext))]
-    [Migration("20200423231714_migration1")]
-    partial class migration1
+    [Migration("20200424012705_otra")]
+    partial class otra
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,13 +70,13 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.RecipeIngredient", b =>
                 {
-                    b.HasOne("Domain.Recipe", "Recipe")
+                    b.HasOne("Domain.Ingredient", "Ingredient")
                         .WithMany("RecipeIngredients")
                         .HasForeignKey("IngredientID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Ingredient", "Ingredient")
+                    b.HasOne("Domain.Recipe", "Recipe")
                         .WithMany("RecipeIngredients")
                         .HasForeignKey("RecipeID")
                         .OnDelete(DeleteBehavior.Cascade)
