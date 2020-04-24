@@ -3,14 +3,16 @@ using DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(RecipesContext))]
-    partial class RecipesContextModelSnapshot : ModelSnapshot
+    [Migration("20200423235528_migration")]
+    partial class migration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,13 +70,13 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.RecipeIngredient", b =>
                 {
-                    b.HasOne("Domain.Ingredient", "Ingredient")
+                    b.HasOne("Domain.Recipe", "Recipe")
                         .WithMany("RecipeIngredients")
                         .HasForeignKey("IngredientID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Recipe", "Recipe")
+                    b.HasOne("Domain.Ingredient", "Ingredient")
                         .WithMany("RecipeIngredients")
                         .HasForeignKey("RecipeID")
                         .OnDelete(DeleteBehavior.Cascade)

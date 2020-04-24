@@ -6,6 +6,7 @@ using BusinessLogic;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using RecipesAPI.Model;
 
 //Meli
 namespace RecipesAPI.Controllers
@@ -21,9 +22,16 @@ namespace RecipesAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Recipe> GetAllRecipes()
+        public IEnumerable<RecipeModel> GetAllRecipes()
         {
-            return _recipeBL.GetAllRecipes();
+            //_recipeBL.AddStuffIfDBEmpty();
+            List<RecipeModel> toReturn = new List<RecipeModel>();
+            var recipesDB = _recipeBL.GetAllRecipes();
+            foreach (var item in recipesDB)
+            {
+                toReturn.Add(new RecipeModel(item.RecipeID, item.RecipeName, item.Difficulty, item.RecipeIngredients.ToList()));
+            }
+            return toReturn;
         }
         
         [HttpGet]
@@ -47,7 +55,7 @@ namespace RecipesAPI.Controllers
         }
 
         [HttpDelete]
-        [Route("{recipeId:int}")]
+        [Route("{recipeId}")]
         public void DeleteRecipe(int recipeId)
         {
             _recipeBL.DeleteRecipe(recipeId);

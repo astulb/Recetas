@@ -17,5 +17,6 @@ namespace BusinessLogic
         public void AddRecipe(Recipe recipe);
 
         public void DeleteRecipe(int recipeId);
+        void AddStuffIfDBEmpty();
     }
 }

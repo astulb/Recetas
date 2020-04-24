@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using Domain;
 
@@ -43,15 +44,16 @@ namespace DataAccess
 
         public List<Recipe> GetAllRecipes()
         {
-            List<Recipe> recipes = new List<Recipe>();
             var recipeList = db.Recipes.ToList();
-            for (int i = 0; i < recipeList.Count; i++)
-            {
-                recipes.Add(recipeList[i]);
+            //foreach (var item in recipeList)
+            //{
+            //    foreach (var item2 in item.RecipeIngredients)
+            //    {
+            //        var asdas = item2.Ingredient.IngredientName;
+            //    }
+            //}
 
-            }
-
-            return recipes;
+            return recipeList;
         }
 
         public Recipe GetRecipe(int Id)
